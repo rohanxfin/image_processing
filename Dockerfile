@@ -1,6 +1,10 @@
 # Use a lightweight Python base image
 FROM nvidia/cuda:12.5.1-devel-ubuntu22.04
 
+# Set environment variables to avoid tzdata prompts during install
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=Asia/Kolkata
+
 # Install system dependencies
 RUN apt-get update && apt-get install -y \
     python3-pip \
